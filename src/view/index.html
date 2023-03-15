@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script
+      async
+      defer
+      src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+    ></script>
+    <script async type="module" src="/js/firebase.js"></script>
+    <script async type="module" src="/js/firestore.js"></script>
+    <title>App</title>
+  </head>
+  <body>
+    <div class="container">
+      <form id="phone_auth" style="border: solid 1px black">
+        <input
+          id="user_number"
+          type="tel"
+          placeholder="Please enter your number"
+          style="width: 200px"
+          required
+        />
+        <button id="send_button">Send</button>
+        <div id="recaptcha-container" class="reCaptcha"></div>
+      </form>
+      <div class="confirmation_box">
+        <form id="confirm_form">
+          <input
+            type="text"
+            class="confirmation_code"
+            placeholder="Enter confirmation code"
+          />
+          <button id="confirm">Confrim</button>
+        </form>
+      </div>
+    </div>
+  </body>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    form {
+      display: flex;
+      width: 400px;
+      height: 200px;
+      flex-direction: column;
+      border: solid 1px black;
+      padding: 15px;
+    }
+
+    input {
+      width: 200px;
+    }
+
+    button {
+      width: 100px;
+      height: 30px;
+      font-weight: bold;
+      background-color: grey;
+      border: none;
+      color: white;
+      border-radius: 4px;
+      margin-top: 10px;
+    }
+
+    .confirmation_box {
+      display: flex;
+      flex-direction: column;
+      width: 400px;
+      height: 200px;
+      margin-top: 15px;
+    }
+
+    .reCaptcha {
+      margin-top: 15px;
+    }
+  </style>
+</html>
